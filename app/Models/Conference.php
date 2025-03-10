@@ -1,0 +1,39 @@
+<?php
+
+namespace App\Models;
+
+use App\Enums\Region;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+
+class Conference extends Model
+{
+    use HasFactory;
+    protected $guarded = []; // Prevents all mass assignment
+
+    protected $casts = [
+        'id' => 'integer',
+        'start_date' => 'datetime',
+        'end_date' => 'datetime',
+        'venue_id' => 'integer',
+        'region' => Region::class
+
+    ];
+
+    public function venue(): BelongsTo
+    {
+        return $this->belongsTo(Venue::class);
+    }
+
+    public function speakers(): BelongsToMany
+    {
+        return $this->belongsToMany(Speaker::class);
+    }
+
+    public function talks(): BelongsToMany
+    {
+        return $this->belongsToMany(Talk::class);
+    }
+}
