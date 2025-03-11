@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Speaker;
 use App\Models\User;
 use App\Models\Venue;
+use App\Models\Speaker;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Conference;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
