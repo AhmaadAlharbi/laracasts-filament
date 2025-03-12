@@ -24,6 +24,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class Conference extends Model
 {
     use HasFactory;
+    protected $guarded = []; // Prevents all mass assignment
 
     protected $casts = [
         'id' => 'integer',
