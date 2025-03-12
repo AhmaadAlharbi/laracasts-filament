@@ -25,6 +25,6 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('12345678'),
         ]);
         Venue::factory(50)->create();
-        Speaker::factory(10)->create();
+        Speaker::factory(10)->withTalks(1)->create();
     }
 }
